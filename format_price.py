@@ -1,24 +1,20 @@
 import sys
-import locale
-from unicodedata import normalize
 
 
 def format_price(price):
     try:
-        number_price = float(price)
+        price_is_number = int(float(price))
     except ValueError:
         return None
-    locale.setlocale(locale.LC_ALL, 'ru_RU')
-    str_price = locale.format_string('%d', number_price, grouping=True)
-    return normalize("NFKD", str_price)
+    return '{0:,}'.format(price_is_number).replace(',', ' ')
 
 
 if __name__ == '__main__':
     try:
-        answer = format_price(sys.argv[1])
-        if not answer:
+        str_price = format_price(sys.argv[1])
+        if not str_price:
             print("Can't be converted")
         else:
-            print(answer)
+            print(str_price)
     except IndexError:
         print('Not entered price')
