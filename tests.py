@@ -5,22 +5,22 @@ from format_price import format_price
 class TestFormatPrice(unittest.TestCase):
 
     def test_float_str(self):
-        self.assertEqual(format_price('3245.000000'), '3 245')
+        self.assertEqual(format_price('3245.000000'), '3 245.00')
 
     def test_float_value(self):
-        self.assertEqual(format_price(3245.50000), '3 245')
+        self.assertEqual(format_price(3245.50000), '3 245.50')
 
     def test_negative_float(self):
-        self.assertEqual(format_price(-3245.400000), '-3 245')
+        self.assertEqual(format_price(-3245.400000), '-3 245.40')
 
     def test_int_str(self):
-        self.assertEqual(format_price('3245'), '3 245')
+        self.assertEqual(format_price('3245'), '3 245.00')
 
     def test_int_value(self):
-        self.assertEqual(format_price(3245), '3 245')
+        self.assertEqual(format_price(3245), '3 245.00')
 
     def test_negative_int(self):
-        self.assertEqual(format_price(-3245), '-3 245')
+        self.assertEqual(format_price(-3245), '-3 245.00')
 
     def test_string_text(self):
         self.assertEqual(format_price('t55est'), None)
