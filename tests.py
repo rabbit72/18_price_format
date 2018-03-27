@@ -4,11 +4,32 @@ from format_price import format_price
 
 class TestFormatPrice(unittest.TestCase):
 
-    def test_float_str(self):
+    def test_float_str_1(self):
         self.assertEqual(format_price('3245.000000'), '3 245')
 
-    def test_float_value(self):
-        self.assertEqual(format_price(3245.556), '3 245.56')
+    def test_float_str_2(self):
+        self.assertEqual(format_price('3245.0000001'), '3 245.00')
+
+    def test_float_str_3(self):
+        self.assertEqual(format_price('3245.0000000000001'), '3 245')
+
+    def test_float_str_4(self):
+        self.assertEqual(format_price('0.0000000000001'), '0.00')
+
+    def test_float_less_1_str(self):
+        self.assertEqual(format_price('0.34234324'), '0.34')
+
+    def test_float_value_1(self):
+        self.assertEqual(format_price(3245.556666666), '3 245.56')
+
+    def test_float_value_2(self):
+        self.assertEqual(format_price(3245.00000000000005), '3 245')
+
+    def test_float_value_3(self):
+        self.assertEqual(format_price(0.0000000000005), '0.00')
+
+    def test_float_value_4(self):
+        self.assertEqual(format_price(0.0000000000000), '0')
 
     def test_negative_float(self):
         self.assertEqual(format_price(-3245.444), '-3 245.44')
