@@ -8,10 +8,10 @@ class TestFormatPrice(unittest.TestCase):
         self.assertEqual(format_price('3245.000000'), '3 245.00')
 
     def test_float_value(self):
-        self.assertEqual(format_price(3245.50000), '3 245.50')
+        self.assertEqual(format_price(3245.556), '3 245.56')
 
     def test_negative_float(self):
-        self.assertEqual(format_price(-3245.400000), '-3 245.40')
+        self.assertEqual(format_price(-3245.444), '-3 245.44')
 
     def test_int_str(self):
         self.assertEqual(format_price('3245'), '3 245.00')
