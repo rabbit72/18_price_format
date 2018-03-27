@@ -2,9 +2,11 @@ import sys
 
 
 def format_price(price):
+    if isinstance(price, bool):
+        return None
     try:
         price_is_number = int(float(price))
-    except ValueError:
+    except (ValueError, TypeError):
         return None
     return '{0:,}'.format(price_is_number).replace(',', ' ')
 
