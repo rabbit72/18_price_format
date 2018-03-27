@@ -5,10 +5,10 @@ def format_price(price):
     if isinstance(price, bool):
         return None
     try:
-        price_as_number = int(float(price))
+        price_as_number = float(price)
     except (ValueError, TypeError):
         return None
-    return '{0:,}'.format(price_as_number).replace(',', ' ')
+    return '{0:,.2f}'.format(price_as_number).replace(',', ' ')
 
 
 if __name__ == '__main__':
