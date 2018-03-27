@@ -25,20 +25,14 @@ class TestFormatPrice(unittest.TestCase):
     def test_string_text(self):
         self.assertEqual(format_price('t55est'), None)
 
-    def test_string_int_long_number(self):
-        self.assertEqual(format_price('100_000_000'), '100 000 000')
-
-    def test_int_long_number(self):
-        self.assertEqual(format_price(56_564_54_44_55555), '56 564 544 455 555')
-
-    def test_string_float_long_number(self):
-        self.assertEqual(format_price('100_000_000.4444'), '100 000 000')
-
-    def test_float_long_number(self):
-        self.assertEqual(format_price(100_000_000.60), '100 000 000')
-
     def test_long_number(self):
         self.assertEqual(format_price('56_564_54_44__55555'), None)
+
+    def test_bool(self):
+        self.assertEqual(format_price(True), None)
+
+    def test_none(self):
+        self.assertEqual(format_price(None), None)
 
 
 if __name__ == '__main__':
