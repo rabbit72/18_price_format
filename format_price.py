@@ -6,7 +6,11 @@ def format_price(price):
         return None
     try:
         price_as_number = float(price)
-        return '{0:,g}'.format(price_as_number).replace(',', ' ')
+        if price_as_number.is_integer():
+            str_price = '{0:,}'.format(int(price_as_number))
+        else:
+            str_price = '{0:,.2f}'.format(price_as_number)
+        return str_price.replace(',', ' ')
     except (ValueError, TypeError):
         return None
 
