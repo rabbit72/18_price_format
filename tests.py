@@ -34,6 +34,12 @@ class TestFormatPrice(unittest.TestCase):
     def test_none(self):
         self.assertEqual(format_price(None), None)
 
+    def test_list(self):
+        self.assertEqual(format_price([1, 2]), None)
+
+    def test_empty_str(self):
+        self.assertEqual(format_price(''), None)
+
 
 if __name__ == '__main__':
     unittest.main()
