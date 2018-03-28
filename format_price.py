@@ -1,8 +1,10 @@
 import sys
 
 
-def is_integer(num):
-    if num % 1 < 0.005:
+def is_integer(number):
+    minimum_value_for_int = 0.005
+    fractional_remainder = number % 1
+    if fractional_remainder < minimum_value_for_int:
         return True
 
 

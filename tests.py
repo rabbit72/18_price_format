@@ -26,7 +26,7 @@ class TestFormatPrice(unittest.TestCase):
         self.assertEqual(format_price(3245.00000000000005), '3 245')
 
     def test_float_value_3(self):
-        self.assertEqual(format_price(0.004), '0')
+        self.assertEqual(format_price(0.0049), '0')
 
     def test_float_value_4(self):
         self.assertEqual(format_price(0.005), '0.01')
